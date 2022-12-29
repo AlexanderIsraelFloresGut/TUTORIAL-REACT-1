@@ -19,8 +19,17 @@ namespace TUTORIAL_REACT_1.Controllers
         [Route("ObtenerEmpleado")]
         public IActionResult ObtenerEmpleado()
         {
-            List<Empleado> listaemp = _bcfcontext.Empleados.ToList();
-            return StatusCode(StatusCodes.Status200OK, listaemp);
+            try
+            {
+                List<Empleado> listaemp = _bcfcontext.Empleados.ToList();
+                return StatusCode(StatusCodes.Status200OK, listaemp);
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
         }
     }
 }
